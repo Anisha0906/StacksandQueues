@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StackQueue
 {
-       class StackUsingLinkedList
+     class StackUsingLinkedList
     {
 
         private Node top;
@@ -14,7 +14,7 @@ namespace StackQueue
         {
             this.top = null;
         }
-        internal void Push(int value)
+         internal void Push(int value)
         {
             Node node = new Node(value);
             if (this.top == null)
@@ -24,7 +24,34 @@ namespace StackQueue
             this.top = node;
             Console.WriteLine("{0} pushed to stack ", value);
         }
-        public void Display()
+         internal void Peek()
+        {
+             if (this.top == null)
+            {
+                Console.WriteLine("Stack is empty");
+                return;
+            }
+             Console.WriteLine("{0} is in the top of the stack ", this.top.data);
+        }
+        internal void Pop()
+        {
+             if (this.top == null)
+            {
+                 Console.WriteLine("Stack is empty, Deletion is not possible");
+                return;
+            }
+             Console.WriteLine("Value popped is {0} ", this.top.data);
+             this.top = this.top.next;
+        }
+         internal void IsEmpty()
+        {
+            while (this.top != null)
+            {
+                Peek();
+                Pop();
+            }
+        }
+         public void Display()
         {
             Node temp = this.top;
             while (temp != null)
