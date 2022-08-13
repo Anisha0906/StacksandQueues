@@ -8,7 +8,7 @@ namespace StackQueue
 {
        class QueueUsingLinkedList
     {
-       Node head = null;
+            Node head = null;
 
         internal void Enqueue(int data)
         {
@@ -25,6 +25,14 @@ namespace StackQueue
                 temp.next = node;
             }
             Console.WriteLine("{0} inserted into queue ", node.data);
+        }
+        internal void Dequeue()
+        {
+            if (this.head == null)
+                return;
+            Node temp = this.head;
+            this.head = this.head.next;
+            Console.WriteLine(temp.data + " is removed");
         }
         internal void Display()
         {
